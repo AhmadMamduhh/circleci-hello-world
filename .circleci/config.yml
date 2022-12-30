@@ -9,10 +9,26 @@ jobs:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
     steps:
-      - node/install
-      - checkout
-      # install dependencies in both apps
+      # install dependencies in frontend
       - run:
-          name: hello
+          name: install frontend dependencies
           command: |
-            echo "hello-world"
+            npm frontend:install
+    steps:
+      # install dependencies in backend
+      - run:
+          name: install backend dependencies
+          command: |
+            npm backend:install
+    steps:
+      # build frontend
+      - run:
+          name: build frontend
+          command: |
+            npm frontend:build
+    steps:
+      # build backend
+      - run:
+          name: build backend
+          command: |
+            npm backend:build
