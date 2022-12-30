@@ -10,6 +10,7 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - node/install
+      - node/install-yarn
       - checkout
       # install dependencies in frontend
       - run:
