@@ -14,19 +14,16 @@ jobs:
           name: install frontend dependencies
           command: |
             npm frontend:install
-    steps:
       # install dependencies in backend
       - run:
           name: install backend dependencies
           command: |
             npm backend:install
-    steps:
       # build frontend
       - run:
           name: build frontend
           command: |
             npm frontend:build
-    steps:
       # build backend
       - run:
           name: build backend
